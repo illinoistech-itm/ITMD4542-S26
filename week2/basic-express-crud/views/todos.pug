@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  a(href='/todos/add') Add a Todo
+  hr
+  if todos.length >= 1
+    div#todos-wrapper
+      ul.todos
+        each val in todos
+          li(data-todo=val.id)
+            | #{val.text} --- 
+            a(href='/todos/delete/' + val.id) Delete Todo
+            | 
+            a(href='/todos/edit/' + val.id) Edit Todo

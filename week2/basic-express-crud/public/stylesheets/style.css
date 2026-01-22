@@ -1,0 +1,16 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.redtext {
+  color: #ff0000;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+}

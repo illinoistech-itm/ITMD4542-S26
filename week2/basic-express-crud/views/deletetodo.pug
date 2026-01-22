@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Are you sure you want to delete the following todo?
+  hr
+  p= todo.text
+  form(method='POST' action='/todos/delete/' + todo.id).
+    #[input(type='submit' value='Delete Todo')] 
+    #[a(href='/todos') Cancel]

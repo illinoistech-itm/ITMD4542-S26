@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Are you sure you want to edit the following todo?
+  hr
+  form(method='POST' action='/todos/edit/' + todo.id)
+    input(type='text' name='todoin' value=todo.text)
+    | 
+    input(type='submit' value='Save Todo')
+    | 
+    a(href='/todos') Cancel

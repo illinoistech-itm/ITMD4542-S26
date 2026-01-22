@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Please use the form below to add a todo.
+  hr
+  if msg
+    p(class='redtext')= msg
+  form(method='POST' action='/todos/add')
+    input(type='text' name='todoin')
+    | 
+    input(type='submit' value='Save Todo')
+    | 
+    a(href='/todos') Cancel
