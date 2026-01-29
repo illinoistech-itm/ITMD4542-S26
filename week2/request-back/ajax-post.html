@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('myform').addEventListener('submit', (evt) => {
+        evt.preventDefault();
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        fetch('http://localhost:3000', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({name: name, email: email})
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          document.getElementById('name').value = '';
+          document.getElementById('email').value = '';
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <form id="myform" method="POST" action="http://localhost:3000">
+    <label>Name <input id="name" type="text" name="name"></label><br>
+    <label>Email <input id="email" type="text" name="email"></label><br>
+    <input type="submit" value="Submit Form">
+  </form>
+</body>
+</html>
